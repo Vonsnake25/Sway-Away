@@ -1,0 +1,6 @@
+{
+  "swayaway.option.disabled": "Off",
+  "swayaway.option.modelonly": "Model Only",
+  "swayaway.option.full": "Full",
+  "swayaway.option.tooltip": "Sets how the view model and camera sways when walking. Switching this to Off or Model Only can help if you experience motion sickness."
+}

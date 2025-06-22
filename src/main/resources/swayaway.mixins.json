@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "vonsnake.swayaway.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "nocambob.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "MixinGameRenderer",
+    "MixinVideoSettingsScreen"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
