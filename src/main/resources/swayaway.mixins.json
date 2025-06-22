@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "vonsnake.swayaway.mixin",
   "compatibilityLevel": "JAVA_8",
-  "refmap": "nocambob.refmap.json",
+  "refmap": "swayaway.refmap.json",
   "mixins": [
   ],
   "client": [
