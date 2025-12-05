@@ -1,21 +1,21 @@
 package vonsnake.swayaway.compat;
 
-import me.jellysquid.mods.sodium.client.gui.options.Option;
-import me.jellysquid.mods.sodium.client.gui.options.OptionImpl;
-import me.jellysquid.mods.sodium.client.gui.options.control.CyclingControl;
-import me.jellysquid.mods.sodium.client.gui.options.storage.OptionStorage;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.SubscribeEvent;
 import org.embeddedt.embeddium.api.OptionGroupConstructionEvent;
-import org.embeddedt.embeddium.client.gui.options.OptionIdentifier;
+import org.embeddedt.embeddium.api.options.OptionIdentifier;
+import org.embeddedt.embeddium.api.options.control.CyclingControl;
+import org.embeddedt.embeddium.api.options.structure.Option;
+import org.embeddedt.embeddium.api.options.structure.OptionImpl;
+import org.embeddedt.embeddium.api.options.structure.OptionStorage;
 import vonsnake.swayaway.CamBobOptions;
 import vonsnake.swayaway.SwayAwayMod;
 import vonsnake.swayaway.SwayAwayConfig;
 
 import java.util.List;
 
-public class SodiumCompat {
+public class EmbeddiumCompat {
 
     public static final OptionStorage<?> STORAGE = new OptionStorage<Object>() {
         @Override
@@ -62,7 +62,7 @@ public class SodiumCompat {
                 .setBinding(
                         (s, g) -> SwayAwayConfig.applyCamBobOption(g),
                         (opts) -> SwayAwayConfig.getCurrentCamBobOption()
-                        ).build();
+                ).build();
 
         options.set(index, newOption);
     }

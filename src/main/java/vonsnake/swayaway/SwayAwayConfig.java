@@ -3,22 +3,24 @@ package vonsnake.swayaway;
 import com.mojang.serialization.Codec;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.Arrays;
 
-@Mod.EventBusSubscriber(modid = SwayAwayMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+
+@EventBusSubscriber(modid = SwayAwayMod.MODID, value = Dist.CLIENT)
 public class SwayAwayConfig {
-    private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-    public static final ForgeConfigSpec.BooleanValue BOB_CAM = BUILDER
+    private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    public static final ModConfigSpec.BooleanValue BOB_CAM = BUILDER
             .comment(" Whether the camera bob is enabled. This works in conjunction with the game's bobView setting to determine the mods behaviour.")
             .define("bobCam", true);
 
-    public static final ForgeConfigSpec SPEC = BUILDER.build();
+    public static final ModConfigSpec SPEC = BUILDER.build();
+
 
     /**
      * The current value of BOB_CAM. As this setting is being referenced in a hot path, we don't want to be dealing

@@ -2,8 +2,8 @@ package vonsnake.swayaway;
 
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.OptionEnum;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 import java.util.function.IntFunction;
 

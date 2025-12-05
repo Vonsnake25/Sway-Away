@@ -1,8 +1,8 @@
 package vonsnake.swayaway.mixin;
 
 import net.minecraft.client.renderer.*;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,13 +20,13 @@ public class MixinGameRenderer {
     @Unique
     public boolean noCamBob$applyingBobViewForRenderLevel = false;
 
-    @Inject(method = "renderLevel(FJLcom/mojang/blaze3d/vertex/PoseStack;)V",
+    @Inject(method = "renderLevel",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;bobView(Lcom/mojang/blaze3d/vertex/PoseStack;F)V"))
     public void beforeRenderLevelBobView(CallbackInfo ci) {
         if (!SwayAwayConfig.bobCam) noCamBob$applyingBobViewForRenderLevel = true;
     }
 
-    @Inject(method = "renderLevel(FJLcom/mojang/blaze3d/vertex/PoseStack;)V",
+    @Inject(method = "renderLevel",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/GameRenderer;bobView(Lcom/mojang/blaze3d/vertex/PoseStack;F)V", shift = At.Shift.AFTER))
     public void afterRenderLevelBobView(CallbackInfo ci) {
         noCamBob$applyingBobViewForRenderLevel = false;
